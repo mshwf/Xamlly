@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Xamlly.XamllyControls.ProgressBar"
+             HeightRequest="20"
+             x:Name="this">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Frame" x:Key="cornerStyle">
+                <Setter Property="CornerRadius" Value="{Binding CornerRadius, Source={x:Reference this}}"/>
+            </Style>
+            <Style x:Key="progressStyle" TargetType="Frame" BasedOn="{x:StaticResource cornerStyle}">
+                <Setter Property="RelativeLayout.HeightConstraint" 
+                        Value="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                <Setter Property="Margin" Value="{Binding Padding, Source={x:Reference this}}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid>
+        <Frame x:Name="frameBorder" Style="{x:StaticResource cornerStyle}"
+               BorderColor="{Binding OutlineColor, Source={x:Reference this}}"/>
+        <RelativeLayout x:Name="container">
+
+            <Frame x:Name="frameProgress" Style="{StaticResource progressStyle}"
+                               BackgroundColor="{Binding ProgressColor, Source={x:Reference this}}"/>
+
+        </RelativeLayout>
+        <Label x:Name="percentageText" Text="{Binding Progress, Source={x:Reference this}, StringFormat='{0:P0}'}" Margin="0,0,5,0"
+               FontSize="Micro" FontAttributes="Bold"
+               TextColor="{Binding ProgressTextColor, Source={x:Reference this}}" 
+               HorizontalOptions="End" VerticalOptions="Center"/>
+    </Grid>
+</ContentView>

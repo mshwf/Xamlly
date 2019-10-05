@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xamlly="clr-namespace:Xamlly.XamllyControls;assembly=Xamlly"
+             mc:Ignorable="d"
+             x:Class="XamllySample.MainPage">
+
+    <StackLayout>
+        <xamlly:ProgressBar x:Name="prog" Margin="0"
+                                    Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
+                                    CornerRadius="10"
+                                    Padding="5"
+                                    ProgressTextColor="White"
+                                    BackgroundColor="Black"/>
+
+        <xamlly:ProgressBar Margin="0"
+                                    Progress=".5" ProgressColor="DarkRed" OutlineColor="DarkRed"
+                                    CornerRadius="0"
+                                    Padding="4"
+                                    ProgressTextColor="Black"
+                                    BackgroundColor="White"/>
+
+        <xamlly:ProgressBar Margin="0"
+                                    Progress=".7" ProgressColor="DarkOliveGreen" OutlineColor="Transparent"
+                                    CornerRadius="0"
+                                    Padding="8"
+                                    ProgressTextColor="Black"
+                                    BackgroundColor="DarkSeaGreen"/>
+    </StackLayout>
+
+</ContentPage>
