@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xamlly="clr-namespace:Xamlly.XamllyControls;assembly=Xamlly"
              mc:Ignorable="d"
-             x:Class="XamllySample.MainPage">
-
+             x:Class="Xamlly.Sample.MainPage">
     <StackLayout x:Name="stkParent">
         <Button Text="Increment Progress" TextColor="Green" Clicked="Button_Clicked"/>
         <xamlly:ProgressBar Margin="0"
@@ -33,12 +32,16 @@
         <xamlly:Switch CornerRadius="0"
                        ButtonWidth="70" FontSize="15"
                        OffText="Disagree" OnText="Agree"/>
-        
+
         <xamlly:Switch CornerRadius="10" ButtonWidth="30"
                        OnColor="Red"
                        OffText="No" OnText="Yes"/>
 
-        <xamlly:ToggleButton Text="Hi"/>
+        <xamlly:ToggleButton Text="Hi" SelectedColor="Red" UnselectedColor="Blue" BackgroundColor="Black"/>
+        <xamlly:TogglesBar x:Name="bar" DisplayMemberPath="Name" SelectedColor="Red" UnselectedColor="Blue" BackgroundColor="Black"/>
+        <xamlly:RadioButtonsGroup x:Name="rd" DisplayMemberPath="Name" SelectedValuePath="ID"/>
     </StackLayout>
+
+
 
 </ContentPage>

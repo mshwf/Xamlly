@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{56CF0762-726F-4BC6-8619-D8C90B431278}</ProjectGuid>
+    <ProjectGuid>{056E5BCE-D16C-4393-9075-5EC6F1270446}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>XamllySample.iOS</RootNamespace>
+    <RootNamespace>Xamlly.Sample.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>XamllySample.iOS</AssemblyName>
+    <AssemblyName>Xamlly.Sample.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
@@ -120,13 +120,14 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\XamllySample\XamllySample.csproj">
-      <Project>{AE54E970-CA36-4AB6-ACDF-61BAAAC827E6}</Project>
-      <Name>XamllySample</Name>
+    <ProjectReference Include="..\Xamlly.Sample\Xamlly.Sample.csproj">
+      <Project>{90777A22-9695-4603-ACE7-178A579E0A37}</Project>
+      <Name>Xamlly.Sample</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
