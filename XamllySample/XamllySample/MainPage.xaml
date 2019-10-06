@@ -8,6 +8,10 @@
              x:Class="XamllySample.MainPage">
 
     <StackLayout>
+        <StackLayout BackgroundColor="Gray">
+            <Button Text="Move" Clicked="Button_Clicked"/>
+            <Label Text="Hello Xamarin.Forms!" x:Name="lbMoveable"/>
+        </StackLayout>
         <xamlly:ProgressBar x:Name="prog" Margin="0"
                                     Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
                                     CornerRadius="10"
@@ -28,6 +32,13 @@
                                     Padding="8"
                                     ProgressTextColor="Black"
                                     BackgroundColor="DarkSeaGreen"/>
+
+        <xamlly:Switch x:Name="switch" CornerRadius="0"
+                         ButtonWidth="70" FontSize="15"
+                         OffText="Disagree" OnText="Agree"/>
+        <xamlly:Switch CornerRadius="10" ButtonWidth="30"
+                         FontAttributes="Italic" OnColor="Red"
+                         OffText="No" OnText="Yes"/>
     </StackLayout>
 
 </ContentPage>

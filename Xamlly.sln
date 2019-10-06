@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamllySample.Android", "Xam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamllySample.iOS", "XamllySample\XamllySample.iOS\XamllySample.iOS.csproj", "{56CF0762-726F-4BC6-8619-D8C90B431278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamllySample", "XamllySample\XamllySample\XamllySample.csproj", "{4D3A50D2-8CDA-4188-81B3-69F2EF254A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamllySample", "XamllySample\XamllySample\XamllySample.csproj", "{4D3A50D2-8CDA-4188-81B3-69F2EF254A78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{23B341C8-5048-40DD-9F3A-FF4BB2432C0E}"
 EndProject
@@ -39,7 +39,6 @@ Global
 		{F2FEFEFA-F351-4CE4-9339-A7BBE7ACE1D9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{ACCBC7DF-AC41-4A98-9002-E712EFB0298D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACCBC7DF-AC41-4A98-9002-E712EFB0298D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACCBC7DF-AC41-4A98-9002-E712EFB0298D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{ACCBC7DF-AC41-4A98-9002-E712EFB0298D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{ACCBC7DF-AC41-4A98-9002-E712EFB0298D}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{ACCBC7DF-AC41-4A98-9002-E712EFB0298D}.Debug|iPhone.Deploy.0 = Debug|Any CPU

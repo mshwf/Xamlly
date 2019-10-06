@@ -17,5 +17,11 @@ namespace XamllySample
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            lbMoveable.RelRotateTo(90);
+
+        }
     }
 }

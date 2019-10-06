@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Xamlly.Converters"
+             mc:Ignorable="d"
+             HorizontalOptions="Start"
+             x:Name="this"
+             x:Class="Xamlly.XamllyControls.Switch">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:WidthConverter x:Key="WidthConverter" Ratio="2"/>
+            <Style TargetType="Frame">
+                <Setter Property="CornerRadius" Value="{Binding CornerRadius, Source={x:Reference this}}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Frame x:Name="container" Padding="0" BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
+         WidthRequest="{Binding WidthRequest,Source={x:Reference buttonFrame}, Converter={x:StaticResource WidthConverter}}">
+
+        <Frame x:Name="buttonFrame" Padding="2" WidthRequest="{Binding ButtonWidth, Source={Reference this}}" Margin="0" 
+               HorizontalOptions="Start"
+             BackgroundColor="{Binding OffColor, Source={Reference this}}">
+            <Label x:Name="switchLabel" Text="{Binding OffText, Source={x:Reference this}}" FontSize="{Binding FontSize, Source={Reference this}}"
+                   TextColor="{Binding TextColor, Source={Reference this}}"
+                   FontFamily="{Binding FontFamily, Source={Reference this}}"
+                   FontAttributes="{Binding FontAttributes, Source={Reference this}}"
+                   BackgroundColor="Transparent" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+        </Frame>
+
+    </Frame>
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ToggleSwitch"/>
+    </ContentView.GestureRecognizers>
+</ContentView>
