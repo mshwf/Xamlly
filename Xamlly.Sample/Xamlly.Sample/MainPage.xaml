@@ -40,8 +40,9 @@
         <xamlly:ToggleButton Text="Hi" SelectedColor="Red" UnselectedColor="Blue" BackgroundColor="Black"/>
         <xamlly:TogglesBar x:Name="bar" DisplayMemberPath="Name" SelectedColor="Red" UnselectedColor="Blue" BackgroundColor="Black"/>
 
-        <xamlly:RadioButtonsGroup Orientation="Horizontal" x:Name="rbg" DisplayMemberPath="Name" SelectedValuePath="ID" 
-                                  SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="CadetBlue" TextColor="DarkOliveGreen"/>
+        <xamlly:RadioButtonsGroup Orientation="Vertical" x:Name="rbg" DisplayMemberPath="Name" SelectedValuePath="ID" 
+                                  SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
+                                  TextColor="White"/>
     </StackLayout>
 
 
