@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Xamlly.Sample
 {
 
-    class Person
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-    }
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
@@ -22,26 +14,17 @@ namespace Xamlly.Sample
         public MainPage()
         {
             InitializeComponent();
-            var people = new List<Person> {
-                new Person {ID = 1, Name = "Mohamed"},
-                new Person {ID = 2, Name = "Ali"},
-                new Person {ID = 3, Name = "Kamal"},
-                new Person {ID = 4, Name = "Shit"},
-            };
-            bar.ItemsSource = people;
-            rbg.ItemsSource = people;
+            BindingContext = new MainPageViewModel();
         }
 
-
-        private void Button_Clicked(object sender, System.EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            foreach (Xamlly.XamllyControls.ProgressBar prog in stkParent.Children.Where(x => x is Xamlly.XamllyControls.ProgressBar))
+            foreach (XamllyControls.ProgressBar prog in stkParent.Children.Where(x => x is XamllyControls.ProgressBar))
             {
-                if (prog.Progress == 1.0d)
+                if (prog.Progress > 0.9d)
                     prog.Progress = 0.0d;
                 else
                     prog.Progress += .1;
-
             }
         }
 
