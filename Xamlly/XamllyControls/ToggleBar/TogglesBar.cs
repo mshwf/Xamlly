@@ -162,7 +162,7 @@ namespace Xamlly.XamllyControls
                         FontFamily = FontFamily,
                         BackgroundColor = BackgroundColor,
                         SelectedColor = SelectedColor,
-                        UnselectedColor = UnselectedColor
+                        UnselectedColor = UnselectedColor,
                     };
                     if (!string.IsNullOrEmpty(InitialValuePath))
                     {

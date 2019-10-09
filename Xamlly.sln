@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamlly.Sample.Android", "Xa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamlly.Sample.iOS", "Xamlly.Sample\Xamlly.Sample.iOS\Xamlly.Sample.iOS.csproj", "{056E5BCE-D16C-4393-9075-5EC6F1270446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamlly.Sample", "Xamlly.Sample\Xamlly.Sample\Xamlly.Sample.csproj", "{A696B111-1DD9-4CFE-87B8-2D4787BF6AD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamlly.Sample", "Xamlly.Sample\Xamlly.Sample\Xamlly.Sample.csproj", "{A696B111-1DD9-4CFE-87B8-2D4787BF6AD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

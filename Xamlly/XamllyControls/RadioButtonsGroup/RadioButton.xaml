@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" x:Name="this"
+             mc:Ignorable="d" x:Name="this" HorizontalOptions="FillAndExpand"
              x:Class="Xamlly.XamllyControls.RadioButton">
     <Grid HorizontalOptions="{Binding HorizontalOptions, Source={Reference this}}" VerticalOptions="{Binding VerticalOptions, Source={Reference this}}">
         <Grid.Resources>

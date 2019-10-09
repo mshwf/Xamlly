@@ -17,6 +17,7 @@ namespace Xamlly.XamllyControls
         {
             radiosContainer = new StackLayout();
             Content = radiosContainer;
+            HorizontalOptions = LayoutOptions.Start;
         }
 
         #region Bindable properties

@@ -3,19 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" x:Name="this"
+             mc:Ignorable="d" x:Name="this" HorizontalOptions="FillAndExpand"
              x:Class="Xamlly.XamllyControls.ToggleButton">
-    <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" x:Name="verticalStack">
+    <StackLayout Spacing="0" x:Name="verticalStack">
         <Label x:Name="label" 
                HorizontalTextAlignment="Center" 
                VerticalTextAlignment="Center" 
-               VerticalOptions="CenterAndExpand"
                Margin="5"
                TextColor="{Binding UnselectedColor, Source={x:Reference this}}"
                Text="{Binding Text, Source={x:Reference this}}"
                BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
-               WidthRequest="{Binding WidthRequest, Source={x:Reference verticalStack}}"
-               HeightRequest="{Binding HeightRequest, Source={x:Reference verticalStack}}"
                FontFamily="{Binding FontFamily, Source={x:Reference this}}"
                FontSize="{Binding FontSize, Source={x:Reference this}}"/>
 

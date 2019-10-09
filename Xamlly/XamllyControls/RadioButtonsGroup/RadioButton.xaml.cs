@@ -78,7 +78,7 @@ namespace Xamlly.XamllyControls
 
         private void SetSelection()
         {
-            radio.ScaleTo(IsSelected ? 1 : 0, easing: Easing.CubicIn, length: 100);
+            radio.ScaleTo(IsSelected ? 1 : 0, easing: Easing.CubicIn, length: 250);
         }
     }
 }

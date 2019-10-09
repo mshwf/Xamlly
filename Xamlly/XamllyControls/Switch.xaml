@@ -10,7 +10,7 @@
              x:Class="Xamlly.XamllyControls.Switch">
     <ContentView.Resources>
         <ResourceDictionary>
-            <converters:WidthConverter x:Key="WidthConverter" Ratio="2"/>
+            <converters:WidthConverter x:Key="WidthConverter" Ratio="1.5"/>
             <Style TargetType="Frame">
                 <Setter Property="CornerRadius" Value="{Binding CornerRadius, Source={x:Reference this}}"/>
             </Style>
