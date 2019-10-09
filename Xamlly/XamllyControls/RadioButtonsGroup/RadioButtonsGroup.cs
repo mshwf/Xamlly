@@ -11,21 +11,21 @@ namespace Xamlly.XamllyControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public class RadioButtonsGroup : ContentView
     {
-        StackLayout parentStack;
-        List<SelectionFrame> lbRadios;
+        readonly StackLayout radiosContainer;
 
         public RadioButtonsGroup()
         {
-            parentStack = new StackLayout();
-            Content = parentStack;
+            radiosContainer = new StackLayout();
+            Content = radiosContainer;
         }
 
+        #region Bindable properties
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<object>), typeof(RadioButtonsGroup), defaultBindingMode: BindingMode.TwoWay, propertyChanged: OnItemsSourceChanged);
         public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create(nameof(SelectedIndex), typeof(int), typeof(RadioButtonsGroup), defaultValue: -1, defaultBindingMode: BindingMode.TwoWay);
         public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(object), typeof(RadioButtonsGroup), defaultBindingMode: BindingMode.TwoWay);
         public static readonly BindableProperty OrientationProperty = BindableProperty.Create(nameof(Orientation), typeof(StackOrientation), typeof(RadioButtonsGroup), defaultValue: StackOrientation.Vertical);
-        public static readonly BindableProperty FrontColorProperty = BindableProperty.Create(nameof(FrontColor), typeof(Color), typeof(RadioButtonsGroup), defaultValue: Color.Black);
-        public static readonly BindableProperty DirectionProperty = BindableProperty.Create(nameof(Direction), typeof(Directions), typeof(RadioButtonsGroup), defaultValue: Directions.LTR);
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(RadioButtonsGroup), defaultValue: Color.Black);
+        public static readonly BindableProperty RadioButtonColorProperty = BindableProperty.Create(nameof(RadioButtonColor), typeof(Color), typeof(RadioButtonsGroup), defaultValue: Color.Black);
         public static readonly BindableProperty DisplayMemberPathProperty = BindableProperty.Create(nameof(DisplayMemberPath), typeof(string), typeof(RadioButtonsGroup));
         public static readonly BindableProperty SelectedValuePathProperty = BindableProperty.Create(nameof(SelectedValuePath), typeof(string), typeof(RadioButtonsGroup));
         public static readonly BindableProperty SelectedValueProperty = BindableProperty.Create(nameof(SelectedValue), typeof(object), typeof(RadioButtonsGroup));
@@ -57,18 +57,16 @@ namespace Xamlly.XamllyControls
             set => SetValue(OrientationProperty, value);
         }
 
-        public Color FrontColor
+        public Color TextColor
         {
-            get => (Color)GetValue(FrontColorProperty);
-            set => SetValue(FrontColorProperty, value);
+            get => (Color)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
         }
-
-        public Directions Direction
+        public Color RadioButtonColor
         {
-            get => (Directions)GetValue(DirectionProperty);
-            set => SetValue(DirectionProperty, value);
+            get => (Color)GetValue(RadioButtonColorProperty);
+            set => SetValue(RadioButtonColorProperty, value);
         }
-
         public string DisplayMemberPath
         {
             get => (string)GetValue(DisplayMemberPathProperty);
@@ -105,12 +103,13 @@ namespace Xamlly.XamllyControls
             set => SetValue(FontFamilyProperty, value);
         }
 
+        #endregion
+
         public delegate void ItemsAddedHandler(object sender, ItemsAddedEventArgs e);
         public event ItemsAddedHandler OnItemsAdded;
 
         public delegate void SelectionChangedHandler(object sender, SelectionChangedEventArgs e);
         public event SelectionChangedHandler OnSelectionChanged;
-
 
         private static void OnItemsSourceChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -120,28 +119,24 @@ namespace Xamlly.XamllyControls
 
             // unsubscribe from the old value
 
-            var oldNPC = oldValue as INotifyPropertyChanged;
-            if (oldNPC != null)
+            if (oldValue is INotifyPropertyChanged oldNPC)
             {
                 oldNPC.PropertyChanged -= @this.OnItemsSourcePropertyChanged;
             }
 
-            var oldNCC = oldValue as INotifyCollectionChanged;
-            if (oldNCC != null)
+            if (oldValue is INotifyCollectionChanged oldNCC)
             {
                 oldNCC.CollectionChanged -= @this.OnItemsSourceCollectionChanged;
             }
 
             // subscribe to the new value
 
-            var newNPC = newValue as System.ComponentModel.INotifyPropertyChanged;
-            if (newNPC != null)
+            if (newValue is INotifyPropertyChanged newNPC)
             {
                 newNPC.PropertyChanged += @this.OnItemsSourcePropertyChanged;
             }
 
-            var newNCC = newValue as INotifyCollectionChanged;
-            if (newNCC != null)
+            if (newValue is INotifyCollectionChanged newNCC)
             {
                 newNCC.CollectionChanged += @this.OnItemsSourceCollectionChanged;
             }
@@ -153,61 +148,34 @@ namespace Xamlly.XamllyControls
 
         private void RebuildOnItemsSource()
         {
-            if (parentStack.Children.Count > 0)
+            if (radiosContainer.Children.Count > 0)
                 return;
-            parentStack.Orientation = Orientation;
-            parentStack.HorizontalOptions = Orientation == StackOrientation.Vertical ? LayoutOptions.Center : HorizontalOptions;
-            parentStack.VerticalOptions = VerticalOptions;
-
-            var items = ItemsSource;
-            if (Orientation == StackOrientation.Horizontal && Direction == Directions.RTL)
+            radiosContainer.Orientation = Orientation;
+            radiosContainer.HorizontalOptions = Orientation == StackOrientation.Vertical ? LayoutOptions.Center : HorizontalOptions;
+            radiosContainer.VerticalOptions = VerticalOptions;
+            int i = 0;
+            foreach (var item in ItemsSource)
             {
-                items = items.Reverse();
-            }
-
-            foreach (var item in items)
-            {
-                StackLayout radio = new StackLayout
-                {
-                    Orientation = StackOrientation.Horizontal,
-                    BindingContext = item,
-                    HorizontalOptions = Orientation == StackOrientation.Horizontal ? LayoutOptions.CenterAndExpand : LayoutOptions.Fill,
-                };
-                TapGestureRecognizer tap = new TapGestureRecognizer();
-                tap.Tapped += RadioChecked;
-                radio.GestureRecognizers.Add(tap);
-
                 var displayText = DisplayMemberPath == null ? item.ToString() : item.GetType().GetProperty(DisplayMemberPath).GetValue(item, null).ToString();
-
-                Label radioText = new Label
+                RadioButton radioButton = new RadioButton
                 {
-                    Text = displayText,
+                    RadioButtonColor = RadioButtonColor,
                     VerticalOptions = LayoutOptions.Center,
-                    TextColor = FrontColor,
-                    FontAttributes = FontAttributes,
+                    Text = displayText,
+                    TextColor = TextColor,
+                    FontFamily = FontFamily,
                     FontSize = FontSize,
-                    FontFamily = FontFamily
+                    FontAttributes = FontAttributes,
+                    BindingContext = item
                 };
-                SelectionFrame circle = new SelectionFrame { ClassId = "r", BorderColor = FrontColor, VerticalOptions = LayoutOptions.Center };
-                InitDirection(radio, radioText, circle);
-            }
-
-            lbRadios = parentStack.Children.Where(x => x is StackLayout).SelectMany(x => ((StackLayout)x).Children.Where(l => l.ClassId == "r").Cast<SelectionFrame>()).ToList();
-            if (Orientation == StackOrientation.Horizontal && Direction == Directions.RTL)
-                lbRadios.Reverse();
-            if (SelectedIndex >= 0)
-            {
-                try
-                {
-                    lbRadios[SelectedIndex].IsSelected = true;
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    SetValue(SelectedIndexProperty, 0);
-                    lbRadios[SelectedIndex].IsSelected = true;
-                }
+                radioButton.SelectionChanged += RadioChecked;
+                radiosContainer.Children.Add(radioButton);
+                if (SelectedIndex == i)
+                    radioButton.IsSelected = true;
+                i++;
             }
         }
+
 
         private void OnItemsSourceCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -219,40 +187,19 @@ namespace Xamlly.XamllyControls
             OnItemsAdded?.Invoke(this, new ItemsAddedEventArgs(ItemsSource));
         }
 
-        private void InitDirection(StackLayout radio, Label radioText, SelectionFrame radioCircle)
-        {
-            if (Direction == Directions.RTL)
-            {
-                radioText.HorizontalOptions = LayoutOptions.EndAndExpand;
-                radioCircle.HorizontalOptions = LayoutOptions.StartAndExpand;
-                radio.Children.Add(radioCircle);
-                radio.Children.Add(radioText);
-            }
-            else
-            {
-                radioCircle.HorizontalOptions = LayoutOptions.EndAndExpand;
-                radio.Children.Add(radioText);
-                radio.Children.Add(radioCircle);
-            }
-            parentStack.Children.Add(radio);
-        }
-
         private void RadioChecked(object sender, EventArgs e)
         {
-            StackLayout stRadio = (StackLayout)sender;
-            var lb = stRadio.Children.First(x => x.ClassId == "r") as SelectionFrame;
-            if (lb is null)
-                return;
-            if (!lb.IsSelected)
-            {
-                if (SelectedIndex >= 0)
-                    lbRadios.Single(x => x.IsSelected).IsSelected = false;
-                lb.IsSelected = true;
-                SelectedItem = stRadio.BindingContext;
-                SelectedValue = SelectedValuePath == null ? null : SelectedItem.GetType().GetProperty(SelectedValuePath).GetValue(SelectedItem, null);
-                SelectedIndex = ItemsSource.ToList().IndexOf(SelectedItem);
-                OnSelectionChanged?.Invoke(this, new SelectionChangedEventArgs(SelectedItem, SelectedValue, SelectedIndex));
-            }
+            RadioButton currentRadio = (RadioButton)sender;
+            var all = radiosContainer.Children.OfType<RadioButton>();
+
+            foreach (var radio in all)
+                radio.IsSelected = radio == currentRadio;
+
+            SelectedItem = currentRadio.BindingContext;
+            SelectedValue = SelectedValuePath == null ? null : SelectedItem.GetType().GetProperty(SelectedValuePath).GetValue(SelectedItem, null);
+            SelectedIndex = radiosContainer.Children.IndexOf(currentRadio);
+
+            OnSelectionChanged?.Invoke(this, new SelectionChangedEventArgs(SelectedItem, SelectedValue, SelectedIndex));
         }
 
     }

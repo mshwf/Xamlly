@@ -29,7 +29,7 @@ namespace Xamlly.Sample
                 new Person {ID = 4, Name = "Shit"},
             };
             bar.ItemsSource = people;
-            rd.ItemsSource = people;
+            rbg.ItemsSource = people;
         }
 
 
@@ -43,6 +43,11 @@ namespace Xamlly.Sample
                     prog.Progress += .1;
 
             }
+        }
+
+        private void rbg_OnSelectionChanged(object sender, XamllyControls.SelectionChangedEventArgs osc)
+        {
+
         }
     }
 }

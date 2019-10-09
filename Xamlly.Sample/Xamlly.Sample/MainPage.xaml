@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xamlly="clr-namespace:Xamlly.XamllyControls;assembly=Xamlly"
-             mc:Ignorable="d"
+             mc:Ignorable="d" BackgroundColor="Gray"
              x:Class="Xamlly.Sample.MainPage">
     <StackLayout x:Name="stkParent">
         <Button Text="Increment Progress" TextColor="Green" Clicked="Button_Clicked"/>
@@ -39,7 +39,9 @@
 
         <xamlly:ToggleButton Text="Hi" SelectedColor="Red" UnselectedColor="Blue" BackgroundColor="Black"/>
         <xamlly:TogglesBar x:Name="bar" DisplayMemberPath="Name" SelectedColor="Red" UnselectedColor="Blue" BackgroundColor="Black"/>
-        <xamlly:RadioButtonsGroup x:Name="rd" DisplayMemberPath="Name" SelectedValuePath="ID"/>
+
+        <xamlly:RadioButtonsGroup Orientation="Horizontal" x:Name="rbg" DisplayMemberPath="Name" SelectedValuePath="ID" 
+                                  SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="CadetBlue" TextColor="DarkOliveGreen"/>
     </StackLayout>
 
 

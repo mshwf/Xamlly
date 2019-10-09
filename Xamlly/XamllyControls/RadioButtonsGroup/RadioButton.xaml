@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Name="this"
+             x:Class="Xamlly.XamllyControls.RadioButton">
+    <Grid HorizontalOptions="{Binding HorizontalOptions, Source={Reference this}}" VerticalOptions="{Binding VerticalOptions, Source={Reference this}}">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Frame">
+                    <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="Transparent" BorderColor="{Binding RadioButtonColor, Source={Reference this}}" />
+        <Frame x:Name="radio" WidthRequest="12" HeightRequest="12" CornerRadius="6" BackgroundColor="{Binding RadioButtonColor, Source={Reference this}}" Scale="0" />
+        <Label Grid.Column="1" Text="{Binding Text, Source={Reference this}}" TextColor="{Binding TextColor, Source={Reference this}}"/>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Radio_Tapped"/>
+        </Grid.GestureRecognizers>
+    </Grid>
+</ContentView>

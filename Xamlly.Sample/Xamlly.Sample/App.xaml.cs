@@ -8,8 +8,13 @@ namespace Xamlly.Sample
     {
         public App()
         {
-            InitializeComponent();
-
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+            }
             MainPage = new MainPage();
         }
 
