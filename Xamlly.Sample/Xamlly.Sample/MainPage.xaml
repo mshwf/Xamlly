@@ -18,26 +18,23 @@
     <StackLayout x:Name="stkParent">
         <Label Text="Progress bar" Style="{StaticResource titleStyle}"/>
         <Button Text="Increment Progress" TextColor="Green" Clicked="Button_Clicked"/>
-        <xamlly:ProgressBar Margin="0"
-                            Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
-                            CornerRadius="10"
-                            Padding="5"
+        <xamlly:ProgressBar Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
                             ProgressTextColor="White"
-                            BackgroundColor="Black"/>
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            Padding="5"/>
 
-        <xamlly:ProgressBar Margin="0"
-                            Progress=".5" ProgressColor="DarkRed" OutlineColor="DarkRed"
-                            CornerRadius="0"
-                            Padding="4"
+        <xamlly:ProgressBar Progress=".5" ProgressColor="DarkRed" OutlineColor="DarkRed"
                             ProgressTextColor="Black"
-                            BackgroundColor="White"/>
+                            BackgroundColor="White"
+                            CornerRadius="0"
+                            Padding="4"/>
 
-        <xamlly:ProgressBar Margin="0"
-                            Progress=".7" ProgressColor="DarkOliveGreen" OutlineColor="Transparent"
-                            CornerRadius="0"
-                            Padding="8"
+        <xamlly:ProgressBar Progress=".7" ProgressColor="DarkOliveGreen" OutlineColor="Transparent"
                             ProgressTextColor="Black"
-                            BackgroundColor="DarkSeaGreen"/>
+                            BackgroundColor="DarkSeaGreen"
+                            CornerRadius="0"
+                            Padding="8"/>
         <Label Text="Switches" Style="{StaticResource titleStyle}"/>
 
         <xamlly:Switch CornerRadius="0"  HorizontalOptions="Center"
@@ -52,15 +49,15 @@
         <xamlly:ToggleButton Text="ON" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="CenterAndExpand"/>
         <Label Text="Toggles bar" Style="{StaticResource titleStyle}"/>
 
-        <xamlly:TogglesBar ItemsSource="{Binding Colors}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
-        <xamlly:TogglesBar IsMultiSelect="True" ItemsSource="{Binding Colors}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
+        <xamlly:TogglesBar ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
+        <xamlly:TogglesBar IsMultiSelect="True" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
 
         <Label Text="RadioButtonsGroup" Style="{StaticResource titleStyle}"/>
-        <xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Colors}" DisplayMemberPath="Name" SelectedValuePath="ID" 
+        <xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedValuePath="ID" 
                                   SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
                                   TextColor="White"/>
 
-        <xamlly:RadioButtonsGroup HorizontalOptions="FillAndExpand" ItemsSource="{Binding Colors}" Orientation="Horizontal" DisplayMemberPath="Name" SelectedValuePath="ID" 
+        <xamlly:RadioButtonsGroup HorizontalOptions="FillAndExpand" ItemsSource="{Binding Options}" Orientation="Horizontal" DisplayMemberPath="Name" SelectedValuePath="ID" 
                                   SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" 
                                   RadioButtonColor="Khaki" 
                                   TextColor="Orange"/>

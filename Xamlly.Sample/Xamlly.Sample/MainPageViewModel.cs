@@ -10,20 +10,20 @@ namespace Xamlly.Sample
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Option> colors;
+        private ObservableCollection<Option> options;
 
-        public ObservableCollection<Option> Colors
+        public ObservableCollection<Option> Options
         {
-            get => colors; 
+            get => options; 
             set
             {
-                colors = value;
+                options = value;
                 OnPropertyChanged();
             }
         }
         public MainPageViewModel()
         {
-            Colors = new ObservableCollection<Option>(new List<Option>
+            Options = new ObservableCollection<Option>(new List<Option>
             {
                 new Option {ID = 1, Name = "Option 1"},
                 new Option {ID = 2, Name = "Option 2"},
