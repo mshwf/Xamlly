@@ -3,11 +3,11 @@
 Xamlly is a controls library for Xamarin.Forms, written entirely in XAML. It aims to provide good looking controls, without having to write custom renderers.
 
 Currentlly, the library has these controls:
-1. ProgressBar
-2. RadioButtonsGroup
-3. ToggleButton
-4. TogglesBar
-5. Switch
+1. [ProgressBar](https://github.com/mshwf/Xamlly#progressbar)
+2. [RadioButtonsGroup](https://github.com/mshwf/Xamlly#radiobuttonsgroup)
+3. [Switch](https://github.com/mshwf/Xamlly#switch)
+4. [ToggleButton](https://github.com/mshwf/Xamlly#togglebutton)
+5. [TogglesBar](https://github.com/mshwf/Xamlly#togglesbar)
 
 <img src="https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif" width="300" />
 
