@@ -13,17 +13,16 @@ Currentlly, the library has these controls:
 
 # ProgressBar
 ```xaml 
-<xamlly:ProgressBar Margin="0"
-                    Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
-                    CornerRadius="10"
-                    Padding="5"
+<xamlly:ProgressBar Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
                     ProgressTextColor="White"
-                    BackgroundColor="Black"/>
+                    BackgroundColor="Black"
+                    CornerRadius="10"
+                    Padding="5"/>
 ```
 
 # RadioButtonsGroup
 ```xaml
-<xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Colors}" DisplayMemberPath="Name" SelectedValuePath="ID"
+<xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedValuePath="ID"
                           SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
                           TextColor="White"/>
 ```
@@ -43,6 +42,6 @@ Currentlly, the library has these controls:
 
 # TogglesBar
 ```xaml
-<xamlly:TogglesBar IsMultiSelect="False" ItemsSource="{Binding Colors}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
+<xamlly:TogglesBar IsMultiSelect="False" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
 ```
 More controls to come soon!
