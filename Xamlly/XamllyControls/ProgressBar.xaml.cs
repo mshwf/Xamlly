@@ -106,7 +106,7 @@ namespace Xamlly.XamllyControls
                 (value) =>
                 {
                     RelativeLayout.SetWidthConstraint(frameProgress, Constraint.RelativeToParent((rl) => rl.Width * value));
-                    percentageText.Text = string.Format("{0:P0}", value);
+                    percentageText.Text = $"{value:P0}";
                 },
                  start: oldProgress,
                  end: newProgress
