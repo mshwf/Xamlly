@@ -9,7 +9,7 @@ Currentlly, the library has these controls:
 4. TogglesBar
 5. Switch
 
-[![Demo CountPages alpha](https://im4.ezgif.com/tmp/ezgif-4-d3022729d355.gif)
+[![Xamlly controls](https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif)
 
 # ProgressBar
 ```xaml 
@@ -26,6 +26,14 @@ Currentlly, the library has these controls:
 <xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Colors}" DisplayMemberPath="Name" SelectedValuePath="ID"
                           SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
                           TextColor="White"/>
+```
+
+# Switch
+
+```xaml
+ <xamlly:Switch CornerRadius="10" ButtonWidth="30" HorizontalOptions="Center"
+                       OnColor="Red"
+                       OffText="No" OnText="Yes"/>
 ```
 
 # ToggleButton
