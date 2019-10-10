@@ -2,7 +2,7 @@
 
 namespace Xamlly.Extensions
 {
-    public static class DoubleExtensions
+    internal static class DoubleExtensions
     {
         public static double Clamp(this double self, double min, double max)
         {

@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright />
+    <PackageProjectUrl>https://github.com/mshwf/Xamlly</PackageProjectUrl>
+    <Description>Xamlly is a controls library for Xamarin.Forms, written entirely in XAML.</Description>
+    <RepositoryUrl>https://github.com/mshwf/Xamlly</RepositoryUrl>
+    <PackageTags>xamarin, xamarin-forms, xaml, custom-controls</PackageTags>
+    <PackageReleaseNotes>First release.</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/mshwf/Xamlly/master/icon.png</PackageIconUrl>
+    <Authors>Mohamed A. Elshawaf</Authors>
+    <Company />
   </PropertyGroup>
 
   <ItemGroup>
