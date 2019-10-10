@@ -9,7 +9,7 @@ Currentlly, the library has these controls:
 4. TogglesBar
 5. Switch
 
-[![Xamlly controls](https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif)
+<img src="https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif" width="300" />
 
 # ProgressBar
 ```xaml 
