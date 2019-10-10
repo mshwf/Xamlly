@@ -31,8 +31,8 @@ Currentlly, the library has these controls:
 
 ```xaml
  <xamlly:Switch CornerRadius="10" ButtonWidth="30" HorizontalOptions="Center"
-                       OnColor="Red"
-                       OffText="No" OnText="Yes"/>
+                OnColor="Red"
+                OffText="No" OnText="Yes"/>
 ```
 
 # ToggleButton
