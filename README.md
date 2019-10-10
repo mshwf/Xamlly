@@ -2,6 +2,8 @@
 
 Xamlly is a controls library for Xamarin.Forms, written entirely in XAML. It aims to provide good looking controls, without having to write custom renderers.
 
+[![](https://img.shields.io/badge/nuget-1.0.0-B5E61D)](https://www.nuget.org/packages/Xamlly/)
+
 Currentlly, the library has these controls:
 1. [ProgressBar](#progressbar)
 2. [RadioButtonsGroup](#radiobuttonsgroup)
