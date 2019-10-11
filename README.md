@@ -24,7 +24,7 @@ Currentlly, the library has these controls:
 
 # RadioButtonsGroup
 ```xaml
-<xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedValuePath="ID"
+<xamlly:RadioButtonsGroup ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedValuePath="ID"
                           SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
                           TextColor="White"/>
 ```
