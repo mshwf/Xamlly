@@ -47,4 +47,7 @@ Currentlly, the library has these controls:
                           TextColor="White"/>
 ```
 
-More controls to come soon!
+### Install:
+
+`Install-Package Xamlly -Version 1.0.0`
+In the .NET standard project only.
