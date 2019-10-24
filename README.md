@@ -50,4 +50,5 @@ Currentlly, the library has these controls:
 ### Install:
 
 `Install-Package Xamlly -Version 1.0.0`
+
 In the .NET standard project only.
