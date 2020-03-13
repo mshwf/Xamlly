@@ -1,17 +1,17 @@
-# Xamlly
+# Xamlly [![](https://img.shields.io/badge/nuget-1.0.0-135DF4)](https://www.nuget.org/packages/Xamlly/)
 
-Xamlly is a controls library for Xamarin.Forms, written entirely in XAML. It aims to provide good looking controls, without having to write custom renderers.
 
-[![](https://img.shields.io/badge/nuget-1.0.0-B5E61D)](https://www.nuget.org/packages/Xamlly/)
+Xamlly is a controls library for Xamarin.Forms, written entirely in XAML (or declarative code). It aims to provide good looking controls, without having to write custom renderers.
+
 
 Currentlly, the library has these controls:
 1. [ProgressBar](#progressbar)
-2. [RadioButtonsGroup](#radiobuttonsgroup)
-3. [Switch](#switch)
-4. [ToggleButton](#togglebutton)
-5. [TogglesBar](#togglesbar)
+2. [Switch](#switch)
+3. [ToggleButton](#togglebutton)
+4. [TogglesBar](#togglesbar)
+5. [RadioButtonsGroup](#radiobuttonsgroup)
 
-<img src="https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif" width="300" />
+<img src="https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif" width="500" />
 
 # ProgressBar
 ```xaml 
@@ -20,13 +20,6 @@ Currentlly, the library has these controls:
                     BackgroundColor="Black"
                     CornerRadius="10"
                     Padding="5"/>
-```
-
-# RadioButtonsGroup
-```xaml
-<xamlly:RadioButtonsGroup HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedValuePath="ID"
-                          SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
-                          TextColor="White"/>
 ```
 
 # Switch
@@ -46,4 +39,16 @@ Currentlly, the library has these controls:
 ```xaml
 <xamlly:TogglesBar IsMultiSelect="False" ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedColor="White" UnselectedColor="Gray" BackgroundColor="Black" HorizontalOptions="Fill"/>
 ```
-More controls to come soon!
+
+# RadioButtonsGroup
+```xaml
+<xamlly:RadioButtonsGroup ItemsSource="{Binding Options}" DisplayMemberPath="Name" SelectedValuePath="ID"
+                          SelectedIndex="2" OnSelectionChanged="rbg_OnSelectionChanged" RadioButtonColor="White" 
+                          TextColor="White"/>
+```
+
+### Install:
+
+`Install-Package Xamlly -Version 1.0.0`
+
+In the .NET standard project only.
