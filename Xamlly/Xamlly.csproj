@@ -7,10 +7,13 @@
     <Description>Xamlly is a controls library for Xamarin.Forms, written entirely in XAML.</Description>
     <RepositoryUrl>https://github.com/mshwf/Xamlly</RepositoryUrl>
     <PackageTags>xamarin, xamarin-forms, xaml, custom-controls</PackageTags>
-    <PackageReleaseNotes>First release.</PackageReleaseNotes>
-    <PackageIconUrl>https://raw.githubusercontent.com/mshwf/Xamlly/master/icon.png</PackageIconUrl>
+    <PackageReleaseNotes>Fixing switch issue when initialized with true (button not translated)</PackageReleaseNotes>
+    <PackageIconUrl></PackageIconUrl>
     <Authors>Mohamed A. Elshawaf</Authors>
     <Company />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1-pre</Version>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +33,13 @@
     <EmbeddedResource Update="XamllyControls\ToggleBar\ToggleButton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
