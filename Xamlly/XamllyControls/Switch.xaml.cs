@@ -7,12 +7,32 @@ namespace Xamlly.XamllyControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Switch : ContentView
     {
+        public event EventHandler Switched;
         private static readonly Color lightGray = Color.FromHex("E0E0E0");
         private static readonly Color darkGray = Color.FromHex("C5C5C5");
-        public event EventHandler Switched;
+        private bool setAppearancePending;
+        private double buttonFrameWidth;
+        private double containerWidth;
+
         public Switch()
         {
             InitializeComponent();
+            buttonFrame.SizeChanged += ButtonFrame_SizeChanged;
+            container.SizeChanged += Container_SizeChanged;
+        }
+
+        //this is called right after ButtonFrame_SizeChanged (buttonFrameWidth already initialized)
+        private void Container_SizeChanged(object sender, EventArgs e)
+        {
+            containerWidth = ((Frame)sender).Width;
+
+            if (containerWidth > 0 && buttonFrameWidth > 0 && setAppearancePending)
+                SetAppearance();
+        }
+
+        private void ButtonFrame_SizeChanged(object sender, EventArgs e)
+        {
+            buttonFrameWidth = ((Frame)sender).Width;
         }
         #region Bindable properties
 
@@ -131,20 +151,24 @@ namespace Xamlly.XamllyControls
             IsOn = !IsOn;
             Switched?.Invoke(this, EventArgs.Empty);
         }
-
         private void SetAppearance()
         {
             if (IsOn)//make it on
             {
-                buttonFrame.TranslateTo(container.Width - buttonFrame.Width, 0, easing: Easing.CubicOut);
-                buttonFrame.BackgroundColor = OnColor;
-                switchLabel.Text = OnText;
+                if (containerWidth <= 0 || buttonFrameWidth <= 0)
+                {
+                    setAppearancePending = true;
+                    return;
+                }
+                buttonFrame.TranslateTo(containerWidth - buttonFrameWidth, 0, easing: Easing.CubicOut);
+                buttonFrame.SetBinding(Frame.BackgroundColorProperty, new Binding("OnColor", source: this));
+                switchLabel.SetBinding(Label.TextProperty, new Binding("OnText", source: this, mode: BindingMode.TwoWay));
             }
             else//make it off
             {
                 buttonFrame.TranslateTo(0, 0, easing: Easing.CubicOut);
-                buttonFrame.BackgroundColor = OffColor;
-                switchLabel.Text = OffText;
+                buttonFrame.SetBinding(Frame.BackgroundColorProperty, new Binding("OffColor", source: this));
+                switchLabel.SetBinding(Label.TextProperty, new Binding("OffText", source: this, mode: BindingMode.TwoWay));
             }
         }
     }
