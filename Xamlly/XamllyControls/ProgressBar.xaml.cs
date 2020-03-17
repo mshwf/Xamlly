@@ -41,6 +41,14 @@ namespace Xamlly.XamllyControls
 
         public static readonly BindableProperty ProgressColorProperty =
             BindableProperty.Create(nameof(ProgressColor), typeof(Color), typeof(ProgressBar), null);
+        public bool ShowPercentageText
+        {
+            get => (bool)GetValue(ShowPercentageTextProperty);
+            set => SetValue(ShowPercentageTextProperty, value);
+        }
+
+        public static readonly BindableProperty ShowPercentageTextProperty =
+            BindableProperty.Create(nameof(ShowPercentageText), typeof(bool), typeof(ProgressBar), true);
 
         public Color ProgressTextColor
         {

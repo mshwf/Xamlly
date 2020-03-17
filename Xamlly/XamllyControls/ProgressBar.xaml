@@ -29,7 +29,8 @@
                                BackgroundColor="{Binding ProgressColor, Source={x:Reference this}}"/>
 
         </RelativeLayout>
-        <Label x:Name="percentageText" Text="{Binding Progress, Source={x:Reference this}, StringFormat='{0:P0}'}" Margin="0,0,5,0"
+        <Label x:Name="percentageText" Text="{Binding Progress, Source={x:Reference this}, StringFormat='{0:P0}'}" Margin="5,0,5,0"
+               IsVisible="{Binding ShowPercentageText, Source={Reference this}}"
                FontSize="Micro" FontAttributes="Bold"
                TextColor="{Binding ProgressTextColor, Source={x:Reference this}}" 
                HorizontalOptions="End" VerticalOptions="Center"/>
