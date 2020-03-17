@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamlly.Extensions;
@@ -24,15 +19,6 @@ namespace Xamlly.XamllyControls
         }
 
         #region Bindable properties
-        public ImageSource Image
-        {
-            get => (ImageSource)GetValue(ImageProperty);
-            set => SetValue(ImageProperty, value);
-        }
-
-        public static readonly BindableProperty ImageProperty =
-           BindableProperty.Create(nameof(Image), typeof(ImageSource), typeof(ProgressBar), null);
-
         public Color ProgressColor
         {
             get => (Color)GetValue(ProgressColorProperty);
