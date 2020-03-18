@@ -13,6 +13,11 @@ Currentlly, the library has these controls:
 
 <img src="https://raw.githubusercontent.com/mshwf/Xamlly/master/Xamlly.Sample/xamlly.gif" width="500" />
 
+Include the namespace in the XAML file:
+
+```xaml
+xmlns:xamlly="clr-namespace:Xamlly.XamllyControls;assembly=Xamlly"
+```
 # ProgressBar
 ```xaml 
 <xamlly:ProgressBar Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
