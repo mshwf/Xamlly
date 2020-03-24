@@ -7,12 +7,13 @@
     <Description>Xamlly is a controls library for Xamarin.Forms, written entirely in XAML.</Description>
     <RepositoryUrl>https://github.com/mshwf/Xamlly</RepositoryUrl>
     <PackageTags>xamarin, xamarin-forms, xaml, custom-controls</PackageTags>
-    <PackageReleaseNotes>Fixing switch issue when initialized with true (button not translated)</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixing #2.
+Adding ShowPercentageText to the ProgressBar.</PackageReleaseNotes>
     <PackageIconUrl></PackageIconUrl>
     <Authors>Mohamed A. Elshawaf</Authors>
     <Company />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1-pre</Version>
+    <Version>1.0.2</Version>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
