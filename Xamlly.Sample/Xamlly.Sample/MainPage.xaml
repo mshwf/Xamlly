@@ -17,15 +17,15 @@
     </ContentPage.Resources>
     <StackLayout x:Name="stkParent">
         <Label Text="Progress bar" Style="{StaticResource titleStyle}"/>
-        <Button Text="Increment Progress" TextColor="Green" Clicked="Button_Clicked"/>
+        <Button Text="Increment Progress" TextColor="Black" Clicked="Button_Clicked" HorizontalOptions="Center"/>
         <xamlly:ProgressBar Progress=".3" ProgressColor="CadetBlue" OutlineColor="Black"
-                            ProgressTextColor="White"  ShowPercentageText="False"
+                            ProgressTextColor="White" 
                             BackgroundColor="Black"
                             CornerRadius="10"
                             Padding="5"/>
 
         <xamlly:ProgressBar Progress=".5" ProgressColor="DarkRed" OutlineColor="DarkRed"
-                            ProgressTextColor="Black"
+                            ShowPercentageText="False"
                             BackgroundColor="White"
                             CornerRadius="0"
                             Padding="4"/>
@@ -65,7 +65,4 @@
                                   RadioButtonColor="Black" 
                                   TextColor="Gray"/>
     </StackLayout>
-
-
-
 </ContentPage>

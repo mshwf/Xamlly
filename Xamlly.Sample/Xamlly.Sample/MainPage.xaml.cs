@@ -19,7 +19,8 @@ namespace Xamlly.Sample
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            foreach (XamllyControls.ProgressBar prog in stkParent.Children.Where(x => x is XamllyControls.ProgressBar))
+            var prgrss = stkParent.Children.Where(x => x is XamllyControls.ProgressBar);
+            foreach (XamllyControls.ProgressBar prog in prgrss)
             {
                 if (prog.Progress > 0.9d)
                     prog.Progress = 0.0d;
