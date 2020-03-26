@@ -54,6 +54,6 @@ xmlns:xamlly="clr-namespace:Xamlly.XamllyControls;assembly=Xamlly"
 
 ### Install:
 
-`Install-Package Xamlly -Version 1.0.0`
+`Install-Package Xamlly -Version 1.0.2`
 
 In the .NET standard project only.
