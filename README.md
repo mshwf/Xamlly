@@ -52,6 +52,9 @@ xmlns:xamlly="clr-namespace:Xamlly.XamllyControls;assembly=Xamlly"
                           TextColor="White"/>
 ```
 
+#### NOTE:
+
+I didn't test on Mac (I don't have one currently), so controls might have some issues on iOS, so please test it on iOS before using in production code. I will remove this note once I test on Mac.
 ### Install:
 
 `Install-Package Xamlly -Version 1.0.2`
